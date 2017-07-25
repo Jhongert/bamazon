@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
+var colors = require('colors');
 
 var connection = mysql.createConnection({
 	host: 'localhost',
@@ -36,10 +37,11 @@ function start(){
 function viewProductsSales(){
 	connection.query('SELECT a.department_id, a.department_name, a.over_head_cost, sum(b.product_sales)' +
 	 	' AS product_sales, (sum(b.product_sales) - a.over_head_cost) AS total_profit FROM departments AS a' +
-	 	' INNER JOIN products AS b ON a.department_id = b.department_id GROUP BY department_id', 
+	 	' INNER JOIN products AS b ON a.department_id = b.department_id GROUP BY a.department_id', 
 	 	function(err, results){
 			if(err) throw err;
 
+			console.log('\n************************************************');
 			console.table(results);
 		});
 
@@ -62,7 +64,7 @@ function newDepartment(){
 				if(!isNaN(value) && parseFloat(value) > 0){
 					return true;
 				}
-				return 'Please enter a number greater than 0.';
+				return colors.red('Please enter a number greater than 0.');
 			}
 		}
 	]).then(function(answers){
@@ -75,7 +77,7 @@ function newDepartment(){
 					console.log(err);
 					throw err;
 				}
-				console.log('\n****** Department Added successfully ******\n');
+				console.log(colors.green('\n****** Department Added successfully ******\n'));
 				start();
 			}
 		);

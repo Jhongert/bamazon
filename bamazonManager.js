@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
+var colors = require('colors');
 
 var connection = mysql.createConnection({
 	host: 'localhost',
@@ -63,7 +64,7 @@ function viewLowInventory(){
 		if(results.length > 0)
 			console.table(results);
 		else{
-			console.log('No products with low inventory at this time.');
+			console.log(colors.red('No products with low inventory at this time.'));
 			console.log('********************************************\n');
 		}
 		start();
@@ -90,7 +91,7 @@ function addInventory(){
 							return true;
 						}
 					}
-					return 'Please enter a valid Item id.';
+					return colors.red('Please enter a valid Item id.');
 				}
 			},{
 				type: 'input',
@@ -100,7 +101,7 @@ function addInventory(){
 					if(!isNaN(value) && parseInt(value) > 0 && parseInt(value) == value){
 						return true;
 					}
-					return 'Please enter a whole number greater than 0.';
+					return colors.red('Please enter a whole number greater than 0.');
 				}
 			}
 		]).then(function(answer){
@@ -113,7 +114,7 @@ function addInventory(){
 				}], function(err, res){
 						if(err) throw err;
 
-						console.log('\n****** Inventory Added successfully ******\n');
+						console.log(colors.green('\n****** Inventory Added successfully ******\n'));
 						start();
 					}
 			);
@@ -146,7 +147,7 @@ function newProduct(){
 				if(!isNaN(value) && parseFloat(value) > 0){
 					return true;
 				}
-				return 'Please enter a number greater than 0.';
+				return colors.red('Please enter a number greater than 0.');
 			}
 		}, {
 			type: 'input',
@@ -156,18 +157,9 @@ function newProduct(){
 				if(!isNaN(value) && parseInt(value) > 0 && parseInt(value) == value){
 					return true;
 				}
-				return 'Please enter a whole number greater than 0.';
+				return colors.red('Please enter a whole number greater than 0.');
 			}
-		 }, 
-		//{
-		// 	type: 'input',
-		// 	name: 'department',
-		// 	message: 'Enter department name:',
-		// 	validate: function(value){
-		// 		return value.trim() != '';
-		// 	}
-		// }, 
-		{
+		 }, {
 			type: 'rawlist',
 			name: 'department',
 			message: 'Choose the Department',
@@ -198,7 +190,7 @@ function newProduct(){
 			}], function(err){
 				if(err) throw err
 
-				console.log('\n****** Product Added successfully ******\n');
+				console.log(colors.green('\n****** Product Added successfully ******\n'));
 				start();
 			}
 		);

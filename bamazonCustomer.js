@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
+var colors = require('colors');
 
 var connection = mysql.createConnection({
 	host: 'localhost',
@@ -42,7 +43,7 @@ function start(){
 							return true;
 						}
 					}
-					return 'Please enter a valid Item id.';
+					return colors.red('Please enter a valid Item id.');
 				}
 			}, {
 				type: 'input',
@@ -51,11 +52,11 @@ function start(){
 				validate: function(value){
 					if(!isNaN(value) && parseInt(value) > 0 && parseInt(value) == value){
 						if(curItem.stock_quantity <= parseInt(value)){
-							return 'Insufficient quantity!. Only ' + curItem.stock_quantity + ' available.';
+							return colors.red('Insufficient quantity!. Only ' + curItem.stock_quantity + ' available.');
 						}
 						return true;
 					}
-					return 'Please enter a whole number greater than 0.';
+					return colors.red('Please enter a whole number greater than 0.');
 				}
 			}
 		]).then(function(answer){
@@ -73,9 +74,9 @@ function start(){
 		 				if(err) console.log(err);
 
 		 				console.log('\n***********************************************************');
-						console.log('Ordered Summary:');
-						console.log(answer.quantity, 'units of', curItem.product_name, 'at $' + curItem.price + 'ea');
-						console.log('Total charge: $' + totalCost);
+						console.log(colors.green('Ordered Summary:'));
+						console.log(colors.green(answer.quantity, 'units of', curItem.product_name, 'at $' + curItem.price + 'ea'));
+						console.log(colors.green('Total charge: $' + totalCost));
 						console.log('*************************************************************\n')
 		 			});
 				start();

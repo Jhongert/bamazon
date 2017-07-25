@@ -4,6 +4,7 @@
   "description": "a node and mysql app",
   "main": "bamazonCustomer.js",
   "dependencies": {
+    "colors": "^1.1.2",
     "console.table": "^0.8.0",
     "inquirer": "^3.2.0",
     "mysql": "^2.13.0"
