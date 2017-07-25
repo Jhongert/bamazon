@@ -28,7 +28,6 @@ function start(){
 			case 'add new product':
 				newProduct();
 				break;
-
 		}
 	});
 }
