@@ -61,10 +61,12 @@ function start(){
 		]).then(function(answer){
 				var newQuantity = curItem.stock_quantity - parseInt(answer.quantity);
 				var totalCost = parseInt(answer.quantity) * curItem.price;
+				var revenue = curItem.product_sales + totalCost;
 
 				connection.query('UPDATE products SET ? WHERE ?',
 					[{
-						stock_quantity: newQuantity
+						stock_quantity: newQuantity,
+						product_sales: revenue
 					},{
 						item_id: answer.itemId
 					}], function(err, res){

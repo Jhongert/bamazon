@@ -60,7 +60,7 @@ function viewLowInventory(){
 
 		console.log('\n********************************************');
 
-		if(results.affectedRows > 0)
+		if(results.length > 0)
 			console.table(results);
 		else{
 			console.log('No products with low inventory at this time.');
@@ -105,8 +105,8 @@ function addInventory(){
 			}
 		]).then(function(answer){
 			var newQuantity = curItem.stock_quantity + parseInt(answer.quantity);
-			connection.query('UPDATE products SET ? WHERE ?',[
-				{
+			connection.query('UPDATE products SET ? WHERE ?',
+				[{
 					stock_quantity: newQuantity
 				}, {
 					item_id: answer.itemId
@@ -160,12 +160,12 @@ function newProduct(){
 		}
 	]).then(function(answers){
 		connection.query('INSERT INTO products SET ?',
-			{
+			[{
 				product_name: answers.name,
 				department_name: answers.department,
 				price: parseFloat(answers.price),
 				stock_quantity: parseInt(answers.quantity)
-			}, function(err){
+			}], function(err){
 				if(err) throw err
 
 				console.log('\n****** Product Added successfully ******\n');
