@@ -1,21 +1,7 @@
-var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
 var colors = require('colors');
-
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'jhon4bmd',
-	port: 3306,
-	database: 'bamazon'
-});
-
-connection.connect(function(err){
-	if(err) throw err;
-
-	start();
-});
+var connection = require('./dbConfig');
 
 function start(){
 	var curItem;
@@ -36,7 +22,7 @@ function start(){
 						if(itemId == results[i].item_id){
 							
 							connection.query('SELECT * FROM products WHERE item_id = ?', [itemId], function(err, res){
-								if(err) throw err
+								if(err) throw err;
 
 								curItem = res[0];
 								
@@ -75,12 +61,12 @@ function start(){
 		 				if(err) console.log(err);
 
 		 				console.log('\n***********************************************************');
-						console.log(colors.green('Ordered Summary:'));
-						console.log(colors.green(answer.quantity, 'units of', curItem.product_name, 'at $' + curItem.price + 'ea'));
-						console.log(colors.green('Total charge: $' + totalCost));
+						console.log(colors.green(answer.quantity, 'units of "', curItem.product_name, '" at $' + curItem.price + 'ea'));
+						console.log(colors.green('Total cost: $' + totalCost));
 						console.log('*************************************************************')
 		 			});
 				start();
 			});
 	});
 }
+start();

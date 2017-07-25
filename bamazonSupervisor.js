@@ -1,21 +1,7 @@
-var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
 var colors = require('colors');
-
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'jhon4bmd',
-	port: 3306,
-	database: 'bamazon'
-});
-
-connection.connect(function(err){
-	if(err) throw err;
-
-	start();
-});
+var connection = require('./dbConfig');
 
 function start(){
 	inquirer.prompt([
@@ -84,3 +70,4 @@ function newDepartment(){
 		);
 	});
 }
+start();

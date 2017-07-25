@@ -1,21 +1,7 @@
-var mysql = require('mysql');
 var inquirer = require('inquirer');
 var table = require('console.table');
 var colors = require('colors');
-
-var connection = mysql.createConnection({
-	host: 'localhost',
-	user: 'root',
-	password: 'jhon4bmd',
-	port: 3306,
-	database: 'bamazon'
-});
-
-connection.connect(function(err){
-	if(err) throw err;
-
-	start();
-});
+var connection = require('./dbConfig');
 
 function start(){
 
@@ -48,14 +34,15 @@ function start(){
 }
 
 function viewProducts(){
-	connection.query('SELECT * FROM products', function(err, results){
+	connection.query('SELECT item_id, product_name, department_name, price, stock_quantity,' +
+		' product_sales FROM products LEFT JOIN departments ON products.department_id = ' +
+		' departments.department_id', function(err, results){
 		if(err) throw err;
 
 		console.log('\n');
 		console.table(results);
 		start();
-	});
-	
+	});	
 }
 
 function viewLowInventory(){
@@ -200,3 +187,4 @@ function newProduct(){
 		);
 	});
 }
+start();
