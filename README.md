@@ -21,8 +21,8 @@ Open Terminal/bash window
 - `bamazonCustomer.js` - Allow users to buy productos.
 - `bamazonManager.js` - Allow managers to view products, view low inventory products, add new products, and add inventory.
 - `bamazonSupervisor.js` - Allow supervisors to add new departmets and view a summary of the highest-grossing departments in the store.
-- dbConfig.js - Contains database configurations.
-- db.sql - A copy from the database with dummy data.
+- `dbConfig.js` - Contains database configurations.
+- `db.sql` - A copy from the database with dummy data.
 - `node_modules/` - This folder contains all node modules.
 - `package.json` - This file contains meta data about the app. It includes the list of dependencies to install from npm when running npm install.
 - `.git/` - Git folder
