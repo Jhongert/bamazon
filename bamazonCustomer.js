@@ -22,6 +22,7 @@ function start(){
 	connection.query('SELECT item_id, product_name, price FROM products', function(err, results){
 		if(err) throw err
 
+		console.log('\n');
 		console.table(results);
 
 		inquirer.prompt([
@@ -48,7 +49,7 @@ function start(){
 			}, {
 				type: 'input',
 				name: 'quantity',
-				message: 'How many units would like to buy?',
+				message: 'How many units would you like to buy?',
 				validate: function(value){
 					if(!isNaN(value) && parseInt(value) > 0 && parseInt(value) == value){
 						if(curItem.stock_quantity <= parseInt(value)){
@@ -77,7 +78,7 @@ function start(){
 						console.log(colors.green('Ordered Summary:'));
 						console.log(colors.green(answer.quantity, 'units of', curItem.product_name, 'at $' + curItem.price + 'ea'));
 						console.log(colors.green('Total charge: $' + totalCost));
-						console.log('*************************************************************\n')
+						console.log('*************************************************************')
 		 			});
 				start();
 			});

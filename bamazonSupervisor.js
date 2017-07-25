@@ -41,8 +41,9 @@ function viewProductsSales(){
 	 	function(err, results){
 			if(err) throw err;
 
-			console.log('\n************************************************');
+			console.log('\n');
 			console.table(results);
+			start();
 		});
 
 }
@@ -77,7 +78,7 @@ function newDepartment(){
 					console.log(err);
 					throw err;
 				}
-				console.log(colors.green('\n****** Department Added successfully ******\n'));
+				console.log(colors.green('\n****** Department Added successfully ******'));
 				start();
 			}
 		);

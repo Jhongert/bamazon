@@ -18,6 +18,9 @@ connection.connect(function(err){
 });
 
 function start(){
+
+	console.log('\n');
+
 	inquirer.prompt([
 		{
 			type: 'rawlist',
@@ -59,11 +62,12 @@ function viewLowInventory(){
 	connection.query('SELECT * FROM products WHERE stock_quantity < 5', function(err, results){
 		if(err) throw err;
 
-		console.log('\n********************************************');
-
+		
+		console.log('\n');
 		if(results.length > 0)
 			console.table(results);
 		else{
+			console.log('********************************************');
 			console.log(colors.red('No products with low inventory at this time.'));
 			console.log('********************************************\n');
 		}
@@ -114,7 +118,7 @@ function addInventory(){
 				}], function(err, res){
 						if(err) throw err;
 
-						console.log(colors.green('\n****** Inventory Added successfully ******\n'));
+						console.log(colors.green('\n****** Inventory Added successfully ******'));
 						start();
 					}
 			);
@@ -162,7 +166,7 @@ function newProduct(){
 		 }, {
 			type: 'rawlist',
 			name: 'department',
-			message: 'Choose the Department',
+			message: 'Choose the Department:',
 			choices: function(){
 				var choicesArr = [];
 				
