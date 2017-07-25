@@ -1,8 +1,13 @@
+//Running this application will list 2 menu options
+//View Product Sales by Department and Create New Department
+
+//requires modules
 var inquirer = require('inquirer');
 var table = require('console.table');
 var colors = require('colors');
 var connection = require('./dbConfig');
 
+//prompt the user to choose a option
 function start(){
 	inquirer.prompt([
 		{
@@ -20,6 +25,7 @@ function start(){
 	});
 }
 
+//Display a summarized table in the terminal/bash window
 function viewProductsSales(){
 	connection.query('SELECT a.department_id, a.department_name, a.over_head_cost, sum(b.product_sales)' +
 	 	' AS product_sales, (sum(b.product_sales) - a.over_head_cost) AS total_profit FROM departments AS a' +
@@ -34,6 +40,7 @@ function viewProductsSales(){
 
 }
 
+//Allow supervisors to create a new department
 function newDepartment(){
 	inquirer.prompt([
 		{
@@ -55,15 +62,14 @@ function newDepartment(){
 			}
 		}
 	]).then(function(answers){
+		//insert new department into database
 		connection.query('INSERT INTO departments SET ?',
 			{
 				department_name: answers.name,
 				over_head_cost: parseFloat(answers.overHeadCost)
 			}, function(err){
-				if(err) {
-					console.log(err);
-					throw err;
-				}
+				if(err) throw err;
+				
 				console.log(colors.green('\n****** Department Added successfully ******'));
 				start();
 			}
