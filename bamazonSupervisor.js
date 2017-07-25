@@ -1,5 +1,7 @@
-//Running this application will list 2 menu options
-//View Product Sales by Department and Create New Department
+/*
+	Running this application will list 2 menu options
+  	View Product Sales by Department and Create New Department
+*/
 
 //requires modules
 var inquirer = require('inquirer');
@@ -9,6 +11,8 @@ var connection = require('./dbConfig');
 
 //prompt the user to choose a option
 function start(){
+	console.log('\n');
+	
 	inquirer.prompt([
 		{
 			type: 'rawlist',

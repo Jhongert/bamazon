@@ -1,4 +1,4 @@
-/**
+/*
 	Theis App display a list of items available for sale.
 	Then ask to enter the item-id and quantitity the user want to buy.
 */

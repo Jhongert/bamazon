@@ -1,8 +1,15 @@
+/*
+	This application will list a set of menu options:
+  	View products, View low inventory, add to inventory and Add new product
+*/
+
+//requires modules
 var inquirer = require('inquirer');
 var table = require('console.table');
 var colors = require('colors');
 var connection = require('./dbConfig');
 
+//Prompt the user to choose a option
 function start(){
 
 	console.log('\n');
@@ -32,6 +39,7 @@ function start(){
 	});
 }
 
+//Display every available item
 function viewProducts(){
 	connection.query('SELECT item_id, product_name, department_name, price, stock_quantity,' +
 		' product_sales FROM products LEFT JOIN departments ON products.department_id = ' +
@@ -44,11 +52,11 @@ function viewProducts(){
 	});	
 }
 
+//List all items with an inventory count lower than five
 function viewLowInventory(){
 	connection.query('SELECT * FROM products WHERE stock_quantity < 5', function(err, results){
 		if(err) throw err;
 
-		
 		console.log('\n');
 		if(results.length > 0)
 			console.table(results);
@@ -61,6 +69,7 @@ function viewLowInventory(){
 	});
 }
 
+//Display a prompt that will let the manager "add more" of any item currently in the store.
 function addInventory(){
 	var curItem;
 	connection.query('SELECT * FROM products', function(err, results){
@@ -112,6 +121,7 @@ function addInventory(){
 	});
 }
 
+//Allow the manager to add a completely new product to the store.
 function newProduct(){
 	var departments = [];
 
