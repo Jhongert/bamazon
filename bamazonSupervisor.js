@@ -9,10 +9,10 @@ var table = require('console.table');
 var colors = require('colors');
 var connection = require('./dbConfig');
 
-//prompt the user to choose a option
+//Prompt the user to choose a option
 function start(){
 	console.log('\n');
-	
+
 	inquirer.prompt([
 		{
 			type: 'rawlist',
