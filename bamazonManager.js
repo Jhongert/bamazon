@@ -122,6 +122,14 @@ function addInventory(){
 }
 
 function newProduct(){
+	var departments = [];
+
+	connection.query('SELECT * FROM departments', function(err, results){
+		if(err) throw err
+
+		departments = results;
+	})
+
 	inquirer.prompt([
 		{
 			type: 'input',
@@ -150,19 +158,41 @@ function newProduct(){
 				}
 				return 'Please enter a whole number greater than 0.';
 			}
-		}, {
-			type: 'input',
+		 }, 
+		//{
+		// 	type: 'input',
+		// 	name: 'department',
+		// 	message: 'Enter department name:',
+		// 	validate: function(value){
+		// 		return value.trim() != '';
+		// 	}
+		// }, 
+		{
+			type: 'rawlist',
 			name: 'department',
-			message: 'Enter department name:',
-			validate: function(value){
-				return value.trim() != '';
+			message: 'Choose the Department',
+			choices: function(){
+				var choicesArr = [];
+				
+				for(var i = 0; i < departments.length; i++)
+					choicesArr.push(departments[i].department_name);
+				return choicesArr;
 			}
 		}
+
 	]).then(function(answers){
+		var departmentId;
+
+		for(var i = 0; i < departments.length; i++){
+			if(departments[i].department_name == answers.department){
+				departmentId = departments[i].department_id;
+			}
+		}
+
 		connection.query('INSERT INTO products SET ?',
 			[{
 				product_name: answers.name,
-				department_name: answers.department,
+				department_id: departmentId,
 				price: parseFloat(answers.price),
 				stock_quantity: parseInt(answers.quantity)
 			}], function(err){

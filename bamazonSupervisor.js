@@ -34,6 +34,14 @@ function start(){
 }
 
 function viewProductsSales(){
+	connection.query('SELECT a.department_id, a.department_name, a.over_head_cost, sum(b.product_sales)' +
+	 	' AS product_sales, (sum(b.product_sales) - a.over_head_cost) AS total_profit FROM departments AS a' +
+	 	' INNER JOIN products AS b ON a.department_id = b.department_id GROUP BY department_id', 
+	 	function(err, results){
+			if(err) throw err;
+
+			console.table(results);
+		});
 
 }
 
