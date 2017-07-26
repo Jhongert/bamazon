@@ -104,7 +104,7 @@ function updateItem(quantity){
 
 			console.log('\n***********************************************************');
 			console.log(colors.green(quantity, 'units of "', curItem.product_name, '" at $' + curItem.price + 'ea'));
-			console.log(colors.green('Total cost: $' + totalCost));
+			console.log(colors.green('Total cost: $' + totalCost.toFixed(2)));
 			console.log('*************************************************************');
 
 			displayitems();

@@ -78,7 +78,11 @@ function viewLowInventory(){
 //Display a prompt that will let the manager "add more" of any item currently in the store.
 function addInventory(){
 	var curItem;
-	connection.query('SELECT * FROM products', function(err, results){
+	var query = 'SELECT item_id, product_name, department_name, price, stock_quantity, product_sales ';
+		query += 'FROM products LEFT JOIN departments ON products.department_id = ';
+		query += 'departments.department_id';
+
+	connection.query(query, function(err, results){
 		if(err) throw err;
 
 		console.log('\n');
