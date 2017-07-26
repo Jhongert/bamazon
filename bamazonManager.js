@@ -41,9 +41,11 @@ function start(){
 
 //Display every available item
 function viewProducts(){
-	connection.query('SELECT item_id, product_name, department_name, price, stock_quantity,' +
-		' product_sales FROM products LEFT JOIN departments ON products.department_id = ' +
-		' departments.department_id', function(err, results){
+	var query = 'SELECT item_id, product_name, department_name, price, stock_quantity, product_sales ';
+		query += 'FROM products LEFT JOIN departments ON products.department_id = ';
+		query += 'departments.department_id';
+
+	connection.query(query, function(err, results){
 		if(err) throw err;
 
 		console.log('\n');
@@ -54,7 +56,11 @@ function viewProducts(){
 
 //List all items with an inventory count lower than five
 function viewLowInventory(){
-	connection.query('SELECT * FROM products WHERE stock_quantity < 5', function(err, results){
+	var query = 'SELECT item_id, product_name, department_name, price, stock_quantity, product_sales ';
+		query += 'FROM products LEFT JOIN departments ON products.department_id = ';
+		query += 'departments.department_id WHERE stock_quantity < 5';
+
+	connection.query(query, function(err, results){
 		if(err) throw err;
 
 		console.log('\n');

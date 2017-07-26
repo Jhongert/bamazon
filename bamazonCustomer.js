@@ -66,7 +66,7 @@ function getQuantity(){
 		 {
 			type: 'input',
 			name: 'quantity',
-			message: 'How many units would you like to buy?',
+			message: 'How many units would you like to buy? (' + curItem.stock_quantity + ' units in stock)',
 			validate: function(value){
 				//Make sure the input is a number integer greater than 0 
 				if(!isNaN(value) && parseInt(value) > 0 && parseInt(value) == value){

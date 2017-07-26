@@ -31,10 +31,13 @@ function start(){
 
 //Display a summarized table in the terminal/bash window
 function viewProductsSales(){
-	connection.query('SELECT a.department_id, a.department_name, a.over_head_cost, sum(b.product_sales)' +
-	 	' AS product_sales, (sum(b.product_sales) - a.over_head_cost) AS total_profit FROM departments AS a' +
-	 	' INNER JOIN products AS b ON a.department_id = b.department_id GROUP BY a.department_id', 
-	 	function(err, results){
+	var query = 'SELECT departments.department_id, departments.department_name, departments.over_head_cost, ';
+		query += 'sum(products.product_sales) AS product_sales, ';
+		query += '(sum(products.product_sales) - departments.over_head_cost) AS total_profit ';
+		query += 'FROM departments LEFT JOIN products ON departments.department_id = products.department_id ';
+		query += 'GROUP BY department_id';
+
+	connection.query(query, function(err, results){
 			if(err) throw err;
 
 			console.log('\n');
