@@ -133,12 +133,14 @@ function addInventory(){
 function newProduct(){
 	var departments = [];
 
+	//get departments from database to create a menu selection
 	connection.query('SELECT * FROM departments', function(err, results){
 		if(err) throw err
 
 		departments = results;
 	})
 
+	//Prompt inputs, name, price, quantity, department
 	inquirer.prompt([
 		{
 			type: 'input',
@@ -173,7 +175,7 @@ function newProduct(){
 			message: 'Choose the Department:',
 			choices: function(){
 				var choicesArr = [];
-				
+				//create a list of departments names
 				for(var i = 0; i < departments.length; i++)
 					choicesArr.push(departments[i].department_name);
 				return choicesArr;
@@ -182,13 +184,13 @@ function newProduct(){
 
 	]).then(function(answers){
 		var departmentId;
-
+		//get department id
 		for(var i = 0; i < departments.length; i++){
 			if(departments[i].department_name == answers.department){
 				departmentId = departments[i].department_id;
 			}
 		}
-
+		//insert new product in database
 		connection.query('INSERT INTO products SET ?',
 			[{
 				product_name: answers.name,
