@@ -6,11 +6,8 @@ A storefront builded with MySQL and Node.Js. The app take in orders from custome
 
 **bamazonCustomer.js**
 Running this application will first display all of the items available for sale (See picture below). The app then prompt 
-users with two messages.The first ask them the ID of the product they would like to buy. If the item does not exist the user gets an [aler](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert.jpeg?raw=true). The second message ask how many units of the product they would like to buy. If there is not enough of the product to meet the customer's reques, app will [log a phrase](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert2.jpeg) Insufficient quantity!. Only (count) available, and then prevent the order from going through.
+users with two messages. The first ask them the ID of the product they would like to buy. If the item does not exist the user gets an [aler](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert.jpeg?raw=true). The second message ask how many units of the product they would like to buy. If there is not enough of the product to meet the customer's reques, the app will [log the phrase](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert2.jpeg?raw=true) Insufficient quantity!. Only (count) available, and then prevent the order from going through.
 
-![Bamazon Customer](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc1.jpeg?raw=true)
-
-![Bamazon Customer](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert2.jpeg?raw=true)
 ![Bamazon Customer](https://github.com/Jhongert/bamazon/blob/master/screenshots/bcmsg.jpeg?raw=true)
 
 #### bamazonManager.js
