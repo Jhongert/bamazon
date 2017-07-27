@@ -1,21 +1,29 @@
 # Bamazon
-An Amazon-like storefront builded with MySQL and Node.Js. The app take in orders from customers and deplete stock from the store's inventory. this app also track product sales across store's departments and then provide a summary of the highest-grossing departments in the store.
+A storefront builded with MySQL and Node.Js. The app take in orders from customers and deplete stock from the store's inventory. this app also track product sales across store's departments and then provide a summary of the highest-grossing departments in the store.
 
 ## Getting Started
+### How it works
+
+#### bamazonCustomer.js
+Running this application will first display all of the items available for sale.
+![Bamazon Customer](/screenshots/bcustomer.jpg?raw=true "Bamazon Customer")
+
+#### bamazonManager.js
+#### bamazonSupervisor.js
+
+### Installing
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Open Terminal/bash window
+- Clone this repo. `git clone https://github.com/Jhongert/bamazon.git`
+- Navigate to bamazon folder. `cd bamazon`
+- Install all dependencies. `npm install`
+- Import database `db.sql`
 
 ### Dependencies
 - **inquirer:** For user input.
 - **mysql:** To manage storage.
 - **console.table:** To display data in a table format.
 - **colors:** To color messages and alerts.
-
-### Installing
-Open Terminal/bash window
-- Clone this repo. `git clone https://github.com/Jhongert/bamazon.git`
-- Navigate to bamazon folder. `cd bamazon`
-- Install all dependencies. `npm install`
-- Import database `db.sql`
 
 ### Application Structure
 - `bamazonCustomer.js` - Allow users to buy productos.
