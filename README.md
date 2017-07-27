@@ -6,7 +6,7 @@ A storefront builded with MySQL and Node.Js. The app take in orders from custome
 
 **bamazonCustomer.js:** 
 Running this application will first display all of the items available for sale (See picture below). The app then prompt 
-users with two messages. The first ask them the ID of the product they would like to buy. If the item does not exist the user gets an [aler](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert.jpeg?raw=true). The second message ask how many units of the product they would like to buy. If there is not enough of the product to meet the customer's reques, the app will [log the phrase](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert2.jpeg?raw=true) Insufficient quantity!. Only (count) available, and then prevent the order from going through. Once all information is valid, the order is processed and the customer gets the [total cost of their purchase](https://github.com/Jhongert/bamazon/blob/master/screenshots/bcmsg.jpeg?raw=true).
+users with two messages. The first ask them the ID of the product they would like to buy. If the item does not exist the user gets an aler, [Please enter a valid item id](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert.jpeg?raw=true). The second message ask how many units of the product they would like to buy. If there is not enough of the product to meet the customer's reques, the app will log the phrase [Insufficient quantity!. Only (count) available](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc_alert2.jpeg?raw=true), and then prevent the order from going through. Once all information is valid, the order is processed and the customer gets the [total cost of their purchase](https://github.com/Jhongert/bamazon/blob/master/screenshots/bcmsg.jpeg?raw=true).
 
 ![Bamazon Customer](https://github.com/Jhongert/bamazon/blob/master/screenshots/bcustomer.jpeg?raw=true)
 
@@ -18,7 +18,11 @@ users with two messages. The first ask them the ID of the product they would lik
 
 ![Bamazon Manager](https://github.com/Jhongert/bamazon/blob/master/screenshots/bmanager.jpeg?raw=true)
 
-#### bamazonSupervisor.js
+**bamazonSupervisor.js:**  Running this application will list a set of menu options (picture below).
+- [View Product Sales by Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_view_sales.jpeg?raw=true) display a summarized table in their terminal/bash window.
+- [Create New Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_add_depart.jpeg?raw=true) allow the supervisor to add a completely new department to the store.
+
+![Bamazon Supervisor](https://github.com/Jhongert/bamazon/blob/master/screenshots/bsupervisor.jpeg?raw=true)
 
 ### Installing
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
