@@ -45,6 +45,7 @@ Open Terminal/bash window
 - `dbConfig.js` - Contains database configurations.
 - `db.sql` - A copy from the database with dummy data.
 - `node_modules/` - This folder contains all node modules.
+- `screenshots/` - Screenshots of the app.
 - `package.json` - This file contains meta data about the app. It includes the list of dependencies to install from npm when running npm install.
 - `.git/` - Git folder
 - `.gitignore` - To tell git not to track node_modules files, and thus they won't be committed to Github. 
