@@ -41,9 +41,7 @@ function start(){
 
 //Display every available item
 function viewProducts(){
-	var query = 'SELECT item_id, product_name, department_name, price, stock_quantity, product_sales ';
-		query += 'FROM products LEFT JOIN departments ON products.department_id = ';
-		query += 'departments.department_id';
+	var query = 'SELECT item_id, product_name, price, stock_quantity FROM products';
 
 	connection.query(query, function(err, results){
 		if(err) throw err;
