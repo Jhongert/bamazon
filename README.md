@@ -13,14 +13,14 @@ users with two messages. The first ask them the ID of the product they would lik
 **bamazonManager.js:**  Running this application will list a set of menu options (picture below).
 - [View Products for Sale:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_view_products.jpeg?raw=true) list every available item including the item IDs, names, prices, and quantities.
 - [View Low Inventory:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_low_inv.jpeg?raw=true) list all items with an inventory count lower than five.
-- [Add to Inventory:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_inv.jpeg?raw=true) display a prompt that will let the manager "add more" of any item currently in the store.
-- [Add New Product:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_product.jpeg?raw=true) allow the manager to add a completely new product to the store.
+- [Add to Inventory:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_inv.jpeg?raw=true) display a prompt that will let the manager "add more" of any item currently in the store. If the [item is updated successfully](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_inv_sus.jpeg?raw=true) the app will show the manager a message.
+- [Add New Product:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_product.jpeg?raw=true) allow the manager to add a new product to the store. [A successfully](https://github.com/Jhongert/bamazon/blob/master/screenshots/bm_add_prod-sus.jpeg?raw=true) message will be show to the manager after the new product is added to the database.
 
 ![Bamazon Manager](https://github.com/Jhongert/bamazon/blob/master/screenshots/bmanager.jpeg?raw=true)
 
 **bamazonSupervisor.js:**  Running this application will list a set of menu options (picture below).
 - [View Product Sales by Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_view_sales.jpeg?raw=true) display a summarized table in their terminal/bash window.
-- [Create New Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_add_depart.jpeg?raw=true) allow the supervisor to add a completely new department to the store.
+- [Create New Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_add_depart.jpeg?raw=true) allow the supervisor to add a completely new department to the store. Also shows the supervisor a successfully message When the new department is created.
 
 ![Bamazon Supervisor](https://github.com/Jhongert/bamazon/blob/master/screenshots/bsupervisor.jpeg?raw=true)
 
