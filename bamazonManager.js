@@ -19,11 +19,11 @@ function start(){
 			type: 'rawlist',
 			name: 'choice',
 			message: 'Please choose a task.',
-			choices:['View products', 'View low inventory','Add to inventory', 'Add new product']
+			choices:['View Products For Sale', 'View Low Inventory','Add to Inventory', 'Add New Product']
 		}
 	]).then(function(answer){
 		switch(answer.choice.toLowerCase()){
-			case 'view products':
+			case 'view products for sale':
 				viewProducts();
 				break;
 			case 'view low inventory':
