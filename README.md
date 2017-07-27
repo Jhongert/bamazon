@@ -6,7 +6,7 @@ A storefront builded with MySQL and Node.Js. The app take in orders from custome
 
 #### bamazonCustomer.js
 Running this application will first display all of the items available for sale.
-![Bamazon Customer](https://raw.github.com/Jhongert/bamazon/screenshots/bcustomer.jpg?raw=true "Bamazon Customer")
+![Bamazon Customer](https://github.com/Jhongert/bamazon/blob/master/screenshots/bc1.jpeg?raw=true "Bamazon Customer")
 
 #### bamazonManager.js
 #### bamazonSupervisor.js
