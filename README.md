@@ -20,7 +20,7 @@ users with two messages. The first ask them the ID of the product they would lik
 
 **bamazonSupervisor.js:**  Running this application will list a set of menu options (picture below).
 - [View Product Sales by Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_view_sales.jpeg?raw=true) display a summarized table in their terminal/bash window.
-- [Create New Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_add_depart.jpeg?raw=true) allow the supervisor to add a completely new department to the store. Also shows the supervisor a successfully message When the new department is created.
+- [Create New Department:](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_add_depart.jpeg?raw=true) allow the supervisor to add a completely new department to the store. Also shows the supervisor a [successfully message](https://github.com/Jhongert/bamazon/blob/master/screenshots/bs_added_depart.jpeg?raw=true) When the new department is created.
 
 ![Bamazon Supervisor](https://github.com/Jhongert/bamazon/blob/master/screenshots/bsupervisor.jpeg?raw=true)
 
