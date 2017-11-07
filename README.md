@@ -1,5 +1,5 @@
 # Bamazon
-A storefront builded with MySQL and Node.Js. The app take in orders from customers and deplete stock from the store's inventory. this app also track product sales across store's departments and then provide a summary of the highest-grossing departments in the store.
+A storefront developed with MySQL and Node.Js. The app take in orders from customers and deplete stock from the store's inventory. this app also track product sales across store's departments and then provide a summary of the highest-grossing departments in the store.
 
 ## Getting Started
 ### How it works
@@ -51,7 +51,7 @@ Open Terminal/bash window
 - `.gitignore` - To tell git not to track node_modules files, and thus they won't be committed to Github. 
 - `README.md` - This file.
 
-## Built With
+## Developed With
 - Node.js
 - MySql
 - javascript
